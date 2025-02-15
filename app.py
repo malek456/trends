@@ -124,6 +124,27 @@ if top_keywords:
     
     # Show Plot
     st.plotly_chart(fig)
+    
+    
+    fig, ax1 = plt.subplots(figsize=(10, 6))
+    st.write(df.columns)
+
+        # Axe principal pour les impressions
+    ax1.set_xlabel("Keyword")
+    ax1.set_ylabel("Impressions", color="tab:blue")
+    ax1.plot(df["keyword"], df["impression"], marker='o', linestyle='-', color="tab:blue", label="Impressions")
+    ax1.tick_params(axis='y', labelcolor="tab:blue")
+    plt.xticks(rotation=45)
+
+        # Axe secondaire pour les likes
+    ax2 = ax1.twinx()
+    ax2.set_ylabel("Likes", color="tab:orange")
+    ax2.plot(df["keyword"], df["like"], marker='s', linestyle='--', color="tab:orange", label="Likes")
+    ax2.tick_params(axis='y', labelcolor="tab:orange")
+
+    plt.title("Comparaison des Impressions et Likes par Keyword")
+    fig.tight_layout()
+    st.pyplot(fig)
 
 else:
     st.warning("No trending keywords available.")
