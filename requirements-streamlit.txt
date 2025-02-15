@@ -1,0 +1,17 @@
+numpy
+pandas
+plotly
+streamlit
+requests
+plotly-express
+matplotlib
+wordcloud
+fastapi
+uvicorn
+requests
+pymongo
+python-dotenv
+transformers
+
+
+
